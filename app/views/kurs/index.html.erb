@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Kursovaya</title>
+    <link rel="stylesheet" type="text/css" href="application.css">
+    <script src="javascripts/application.js"></script>
+    <script src="javascripts/Cable.js"></script>
+  </head>
+  <body>
+<div class="notice"><div class="row">Калькулятор позволит быстро рассчитать ежемесячный платеж, годовую процентную ставку, срок займа/кредита и максимальную сумму кредита</div><div><br/></div><div class="row">
+<div class="col-sm-4 col-xs-12 no-padding"><input class="css-radio" type="radio" id="F1" name="find" onclick="disable(); ChangeLabel(); drawChart(); "/>Желаемая сумма кредита</div>
+<div class="col-sm-6 col-xs-12 no-padding"><input id="PV" name="PV" class="vis biginput R W120" type="text" value="" maxlength="10" onclick="this.value = '';" onkeyup="loanCalc();drawChart();" /></div>
+</div>
+<div class="row">
+<div class="col-sm-4 col-xs-12 no-padding"><input class="css-radio" type="radio" id="F2" name="find" onclick="disable(); ChangeLabel(); drawChart(); " checked="checked"/>Ежемесячный платеж </div>
+<div class="col-sm-6 col-xs-12 no-padding"><input id="PMT" name="PMT" class="disabled vis biginput R W120" type="text" value="" maxlength="9" onclick="this.value = '';" onkeyup="loanCalc();drawChart();" onchange="loanCalc();drawChart();" disabled="disabled"/></div>
+</div>
+<div class="row">
+<div class="col-sm-4 col-xs-12 no-padding"><input class="css-radio" type="radio" id="F3" name="find" onclick="disable(); ChangeLabel(); drawChart(); "/>Годовая процентная ставка</div>
+<div class="col-sm-6 col-xs-12 no-padding"><input id="interest" name="interest" class="vis biginput R W120" type="text" value="" maxlength="9" onclick="this.value = '';" onkeyup="loanCalc();drawChart();" onchange="loanCalc();drawChart();" />&nbsp;%</div>
+</div>
+<div class="row">
+<div class="col-sm-4 col-xs-12 no-padding"><input class="css-radio" type="radio" id="F4" name="find" onclick="disable(); ChangeLabel(); drawChart(); "/>Срок кредита</div>
+<div class="col-sm-6 col-xs-12 no-padding"><input id="period" name="period" class="vis biginput R W120" type="text" value="" maxlength="9" onclick="this.value = '';" onkeyup="loanCalc();drawChart();" onchange="loanCalc();drawChart();" /><br/>
+<input class="css-radio" type="radio" id="T1" name="frequency" value="12" onchange="loanCalc();drawChart();" checked="checked"/><label class="css-label" for="T1">год(а) / лет</label><br>
+<input class="css-radio" type="radio" id="T2"  name="frequency" value="1" onchange="loanCalc();drawChart();"/><label class="css-label" for="T2">месяцев</label>
+</div>
+</div>
+<div><hr/></div>
+<div class="row">
+<div class="col-sm-4 col-xs-12 no-padding">Сумма уплаченных процентов всего</div>
+<div class="col-sm-6 col-xs-12 no-padding"><input class="hid biginput R W120" id="total_interest" name="total_interest" disabled="disabled" value="0.00" /></div>
+</div>
+<div class="row">
+<div class="col-sm-4 col-xs-12 no-padding">Сумма всего</div>
+<div class="col-sm-6 col-xs-12 no-padding"><input class="hid biginput R W120" id="total_sum" name="total_sum" disabled="disabled" value="0.00" /></div>
+</div>
+</body>
+</html>
